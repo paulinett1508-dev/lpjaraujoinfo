@@ -174,3 +174,13 @@ img { max-width: 100%; display: block; }
   0%, 100% { transform: scale(1);   opacity: 1; }
   50%       { transform: scale(1.3); opacity: 0.5; }
 }
+
+/* Animações do Radix Accordion */
+@keyframes accordion-down {
+  from { grid-template-rows: 0fr; }
+  to   { grid-template-rows: 1fr; }
+}
+@keyframes accordion-up {
+  from { grid-template-rows: 1fr; }
+  to   { grid-template-rows: 0fr; }
+}
