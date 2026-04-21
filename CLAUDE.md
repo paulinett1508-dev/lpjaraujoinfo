@@ -1,6 +1,53 @@
-NOME DO PROJETO — Fullstack
+J Araújo Informática e Telecomunicação LTDA — Landing Page institucional
 
-Stack: [DESCREVER: ex Node.js + React + MongoDB]
+Empresa B2G de tecnologia pra saúde pública municipal (PEC e-SUS / Saúde Brasil 360).
+Três produtos: Servidor em Nuvem, Indica eSUS (Brasil 360), Painel de Chamadas UBS.
+
+Stack: Next.js 15 (App Router) + TypeScript strict + Tailwind v4 (CSS-first) + Radix UI
+Submodulo: .agnostic-core/
+
+Personas alvo: Secretário(a) de Saúde · Coordenador(a) APS · Prefeito(a) / Gabinete
+
+Comandos essenciais:
+  dev:       npm run dev          (http://localhost:3000)
+  build:     npm run build
+  lint:      npm run lint
+  typecheck: npx tsc --noEmit
+
+Deploy: Vercel (preview por PR, produção via main)
+Referência visual: design-handoff/ — NÃO copiar verbatim, reescrever conforme convenções
+
+Regras de código:
+  - TypeScript strict: sem `any`, sem `!` não-nulo desnecessário
+  - Componentes: PascalCase, um por arquivo
+  - Utilitários/hooks: camelCase
+  - CSS: Tailwind utility classes; sem inline styles (exceto mockups — veja src/components/mockups/)
+  - Cores: sempre via var(--*) ou tokens do @theme; sem hex hardcoded fora do globals.css
+  - Ícones: lucide-react + WhatsAppIcon custom em src/components/ui/icons.tsx
+  - Dados de conteúdo: src/lib/data/*.ts (não embutir no JSX)
+  - Constantes globais: src/lib/constants.ts (WHATSAPP_NUMBER, EMAIL, etc.)
+  - Server Actions: src/app/actions/ (formulário de lead)
+
+Estrutura:
+  src/app/             ← layout.tsx, page.tsx, globals.css, actions/
+  src/components/
+    ui/                ← Button, Badge, Card, icons (CVA)
+    layout/            ← Nav, Footer, Logo, WhatsAppFloat
+    sections/          ← Hero, Problem, Products… (10 seções)
+    mockups/           ← CloudMockup, IndicaMockup, PanelMockup (style objects OK aqui)
+  src/lib/
+    utils.ts           ← cn() (clsx + tailwind-merge)
+    constants.ts       ← WHATSAPP_NUMBER, EMAIL, SITE_URL
+    data/              ← personas.ts, diffs.ts, faq.ts, products.ts
+
+Guardrails — NUNCA fazer sem perguntar:
+  - Mudar paleta de cores ou tipografia
+  - Adicionar biblioteca de animação (Framer Motion, etc.)
+  - Criar página além de / (rota adicional)
+  - Adicionar banco de dados ou autenticação
+  - Mudar o número de WhatsApp ou e-mail de contato
+  - Deploy em produção (só preview automático é OK)
+
 Submodulo: .agnostic-core/
 
 ---
@@ -105,14 +152,16 @@ Git Auto-Push Workflow:
 
 ---
 
-Convencoes do projeto (preencher):
+Convencoes do projeto:
 
-  Backend: [LINGUAGEM] [VERSAO] + [FRAMEWORK] [VERSAO]
-  Frontend: [FRAMEWORK] [VERSAO]
-  Banco: [BANCO] [VERSAO] via [ORM/DRIVER]
-  Auth: JWT / OAuth / sessao
-  Cache: Redis / in-memory / nenhum
-  Testes: [FRAMEWORK DE TESTES]
-  CI/CD: GitHub Actions / outro
-  Deploy: [PLATAFORMA]
-  Estilo de commits: Conventional Commits
+  Frontend: Next.js 15 (App Router) + React 19 + TypeScript 5 strict
+  CSS: Tailwind v4 (CSS-first, @theme no globals.css)
+  Componentes base: Radix UI (Accordion, Slot)
+  Ícones: lucide-react + WhatsAppIcon custom
+  CVA: class-variance-authority (variantes de componentes)
+  Utilitários CSS: clsx + tailwind-merge (via cn())
+  Testes: — (não definido ainda)
+  CI/CD: Vercel (deploy automático por push)
+  Deploy: Vercel (preview por branch, produção via main)
+  Estilo de commits: Conventional Commits (inglês)
+  Comentários de domínio: português
