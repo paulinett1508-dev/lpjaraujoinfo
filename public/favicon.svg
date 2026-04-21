@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <circle cx="16" cy="16" r="16" fill="#1E2A5E"/>
+  <!-- Marca estilizada: chevron/seta ascendente inspirado no logo -->
+  <path fill="#3B82F6" d="M16 5 L22 15 L19 15 L16 10 L13 15 L10 15 Z"/>
+  <path fill="white" d="M10 15 L13 15 L13 22 L10 22 Z"/>
+  <path fill="white" d="M19 15 L22 15 L22 22 L19 22 Z"/>
+  <path fill="#3B82F6" d="M13 18 L19 18 L19 22 L13 22 Z"/>
+</svg>
