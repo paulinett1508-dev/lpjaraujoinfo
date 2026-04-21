@@ -32,3 +32,5 @@ next-env.d.ts
 
 # design-handoff — referência local
 design-handoff/uploads/
+
+.vercel
